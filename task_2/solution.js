@@ -6,8 +6,8 @@ function calcShipping(sum, min, shipping) {
     // Задание №2.1. Рассчитать доставку
     let shippingSum;
      if (sum == 0) {shippingSum = 0;
-     } else if (productsSum >= freeShippingMinSum) { shippingSum = 0;
-     } else if (productsSum > 0 < freeShippingMinSum) {shippingSum = shippingPrice;         
+     } else if (productsSum ==0 || productsSum >= freeShippingMinSum) { shippingSum = 0;
+     } else if (productsSum > 0 < freeShippingMinSum) {shippingSum = shippingPrice;  
      }
 
 
@@ -36,8 +36,7 @@ function calcDiscount(sum, min, discount) {
     // Задание №2.2. Рассчитать скидку
     let discountSum;
     if (productsSum >= discountMinSum) {discountSum = productsSum / 100 * discountPart;
-    } else if (discountSum = 0) {discountSum = 0;}
-
+    } else if (discountSum = 0);
     // создайте переменную discountSum
 
     // если productsSum больше или равно discountMinSum,
@@ -55,16 +54,17 @@ function calcInvoice({sum, discountMinSum, discountPart, shippingFreeMinSum, shi
 
     // Задача №2.3. Рассчитать скидки и доставку в корзине
 
-    let totalSum;// создайте переменную totalSum
-
-    totalSum = productsSum; // присвойте totalSum значение productsSum
-    totalSum = totalSum - discountSum; // уменьшите totalSum на discountSum
-
+    let totalSum;
+    // создайте переменную totalSum
+    // присвойте totalSum значение productsSum
+    // уменьшите totalSum на discountSum
+    totalSum = productsSum; 
+    totalSum = totalSum - discountSum; 
     let shippingSum = calcShipping(totalSum, shippingFreeMinSum, shippingPrice); // не изменяйте эту строку!!!
-
-    totalSum = totalSum + shippingSum; // прибавьте к totalSum значение shippingSum
-
-    let freeShipping; // создайте переменную freeShipping
+    // прибавьте к totalSum значение shippingSum
+    totalSum = totalSum + shippingSum; 
+    let freeShipping; 
+    // создайте переменную freeShipping
     // запишите без использования if или любых других условий:
     freeShipping = shippingSum == 0;
     // если shippingSum равно нулю, то freeShipping должна быть равна true, 
